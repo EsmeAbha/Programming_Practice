@@ -1,24 +1,22 @@
 #include<iostream>
 using namespace std;
-int main(){
-    int m=0;
-    int a;
-    int b;
-    int Array_1 [6]= {1,4,6,3,6,9};
-    int Array_3[12];
-    for(a=0; a<6;a++){
-        for(b=0; b<6;b++){
-            if(Array_1[a]==Array_2[b]){
-                Array_3[m]=Array_1[a];
-                m++;
+int main()
+{
+    int count=0;
+    int arr[]={112,223,21,4,343,5,343,21,112,89};
+    int arr2[10];
+    for(int i=0;i<10;i++){
+        int j;
+        for(j=0;j<i;j++)
+            if(arr[i]==arr[j])
+               break;
+            if(i==j){
+              arr2[i]=arr[i];
+              count++;
             }
-        }
     }
-    if(m!=0)
-    for(a=0; a<m;a++)
-        cout<<Array_3[a]<<",";
-    else
-        cout<<"No common element!";
-
-
+    for(int i=0;i<count;i++){
+        cout<<arr2[i]<<",";
+    }
+    return 0;
 }
