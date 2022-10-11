@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+string ChangedText(string in,int j)
+{
+    int z;
+    for(int i=0;i<in.size();i++)
+    {
+        if(j==i)
+        {
+            z=(int)in[i]+2;
+            in[i]=(char)z;
+            j=j+i;
+        }
+    }
+
+return in;
+}
+int main()
+{
+    int a;
+    string b;
+    cout<<"Enter a text : " ;
+    getline(cin,b);
+    cout<<"Enter a number : ";
+    cin>>a;
+    b=ChangedText(b,a);
+    cout<<"The cypher text is "<<b;
+}
