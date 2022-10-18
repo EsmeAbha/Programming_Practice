@@ -1,0 +1,128 @@
+#include <iostream>
+using namespace std;
+
+
+class Student
+{
+    public:
+     string name;
+     int id;
+     float cgpa;
+     int cred_completed;
+
+     Student(string name,int id,float cgpa,int cred_completed)
+    {
+        this->cgpa=cgpa;
+        this->id=id;
+        this->name=name;
+        this->cred_completed=cred_completed;
+    }
+    void showdetails()
+    {
+        cout<<"Name : "<<name<<endl;
+        cout<<"Id : "<<id<<endl;
+        cout<<"Cgpa : "<<cgpa<<endl;
+        cout<<"Credit Completed : "<<cred_completed<<endl;
+    }
+
+};
+
+void bubblesort(Student student[6])
+    {
+        int z=0;
+     int n=6;
+    for(int i=0;i<(n-1);i++)
+    {
+        for(int j=0;j<(n-i-1);j++)
+        {
+            if(student[j].cgpa>student[j+1].cgpa)
+            {
+
+            Student temp=student[j];
+            student[j]=student[j+1];
+            student[j+1]=temp;
+            z++;
+            }
+        }
+    }
+
+    cout<<"Sorted with cgpa ---->"<<endl;
+    cout<<"Pass : "<<z<<endl;
+    for(int i=0;i<6;i++)
+    {
+        student[i].showdetails();
+    }
+    }
+
+
+void selectionsort(Student student[6]){
+    for(int i=0;i<6;i++)
+    {
+
+        for(int j=i+1;j<6;j++)
+        {
+            if(student[i].cred_completed>=student[j].cred_completed)
+            {
+                Student k=student[j];
+                student[j]=student[i];
+                student[i]=k;
+            }
+        }
+    }
+    cout<<"Sorted with Credits completed ---->"<<endl;
+    for(int i=0;i<6;i++)
+    {
+        student[i].showdetails();
+    }
+}
+
+ void searchcgpa(Student student[6])
+    {
+        double q;
+        cout<<"Search by cgpa : ";
+        cin>>q;
+
+        for(int i=0;i<6;i++)
+        {
+            if(student[i].cgpa==q)
+            {
+                cout<<"\nCgpa Found \n";
+
+            }
+        }
+    }
+
+int main()
+{
+      Student student1= Student("Abha",2,3.72,15);
+      Student student2= Student("Aff",1,2.72,16);
+      Student student3= Student ("JKFDGVF",5,3.2,12);
+      Student student4= Student("GHI",6,4.00,24);
+      Student student5= Student("DEF",3,1.72,26);
+      Student student6= Student("ABC",8,3.32,18) ;
+
+
+    Student student[6]={student1,student2,student3,student4,student5,student6};
+
+    int a;
+    cout<<"Enter the option number 1 or 2:"<<endl;
+    cin>>a;
+
+    switch(a)
+    {
+        case 1:bubblesort(student);
+        cout<<"The info is sorted in bubblesort"<<endl;
+        break;
+        case 2:selectionsort(student);
+        cout<<"The info is sorted in selection"<<endl;
+        break;
+        case 3:searchcgpa(student);
+        cout<<"Cgpa found"<<endl;
+        break;
+    }
+}
+
+
+
+
+
